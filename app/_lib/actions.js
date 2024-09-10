@@ -2,7 +2,13 @@
 
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
-import { deleteBooking, getBookings, updateGuest } from "./data-service";
+import {
+  deleteBooking,
+  getBookings,
+  updateBooking,
+  updateGuest,
+} from "./data-service";
+import { redirect } from "next/navigation";
 
 export async function UpdateGuest(formData) {
   const session = await auth();
@@ -44,6 +50,38 @@ export async function deleteReservation(bookingId) {
   revalidatePath("/account/reservations");
 }
 
+///////////////////////
+// Update Reservation //
+///////////////////////
+export async function updateReservation(formData) {
+  const session = await auth();
+  if (!session) throw new Error("You must be signed in");
+
+  /// This checking is to ensure that the user can only update their own reservations. This is a security measure to prevent unauthorized deletion of reservations by malicious users.
+  const guestBookings = await getBookings(session.user.guestId);
+  const guestBookingIds = guestBookings.map((booking) => booking.id);
+  const bookingId = Number(formData.get("bookingId"));
+
+  if (!guestBookingIds.includes(bookingId))
+    throw new Error("You don't have permission to update this reservation");
+  ///
+
+  const updateData = {
+    numGuests: Number(formData.get("numGuests")),
+    observations: formData.get("observations").slice(0, 1000),
+  };
+
+  await updateBooking(bookingId, updateData);
+
+  revalidatePath("/account/reservations");
+  revalidatePath(`/account/reservations/edit/${bookingId}`);
+
+  redirect("/account/reservations");
+}
+
+///////////////////////
+// Sign In / Sign Out //
+///////////////////////
 export async function signInAction() {
   await signIn("google", { redirectTo: "/account" });
 }
