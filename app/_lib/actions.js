@@ -3,12 +3,14 @@
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import {
+  createBooking,
   deleteBooking,
   getBookings,
   updateBooking,
   updateGuest,
 } from "./data-service";
 import { redirect } from "next/navigation";
+import { supabase } from "./supabase";
 
 export async function UpdateGuest(formData) {
   const session = await auth();
@@ -34,9 +36,33 @@ export async function UpdateGuest(formData) {
   revalidatePath("/account/profile");
 }
 
+//////////////////////
+export async function createReservation(bookingData, formData) {
+  const session = await auth();
+  if (!session) throw new Error("You must be signed in");
+
+  const newBooking = {
+    ...bookingData,
+    guestId: session.user.guestId,
+    numGuests: Number(formData.get("numGuests")),
+    observations: formData.get("observations").slice(0, 1000),
+    extrasPrice: 0,
+    totalPrice: bookingData.cabinPrice,
+    isPaid: false,
+    hasBreakfast: false,
+    status: "unconfirmed",
+  };
+
+  // By the way, you should do some server side checking like if the dates are already booked or not etc. because we just checked in the client side in the date selector which is not enough.
+  await createBooking(newBooking);
+  revalidatePath(`/cabins/${bookingData.cabinId}`);
+
+  redirect("thankyou");
+}
+////////////////////////
+
 export async function deleteReservation(bookingId) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  throw new Error("Failed to delete reservation");
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const session = await auth();
   if (!session) throw new Error("You must be signed in");
