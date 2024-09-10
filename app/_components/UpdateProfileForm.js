@@ -64,7 +64,8 @@ function UpdateProfileForm({ children, guest }) {
 }
 
 function Button() {
-  // you can put this new useFormStatus hook only in the client component
+  // you can put this new useFormStatus hook only in the client component.
+  // This hook is still in development, so it's still a beta feature.
   const { pending } = useFormStatus();
 
   return (
