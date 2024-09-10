@@ -1,14 +1,15 @@
 import SelectCountry from "@/app/_components/SelectCountry";
 import UpdateProfileForm from "@/app/_components/UpdateProfileForm";
+import { auth } from "@/app/_lib/auth";
+import { getGuest } from "@/app/_lib/data-service";
 
 export const metadata = {
   title: "Update profile",
 };
 
-export default function Page() {
-  // CHANGE
-  const countryFlag = "bd.jpg";
-  const nationality = "bangladesh";
+export default async function Page() {
+  const session = await auth();
+  const guest = await getGuest(session.user.email);
 
   return (
     <div>
@@ -21,12 +22,13 @@ export default function Page() {
         faster and smoother. See you soon!
       </p>
 
-      <UpdateProfileForm>
+      {/* This is a very important technique where we passed a server component as a prop to a client component */}
+      <UpdateProfileForm guest={guest}>
         <SelectCountry
           name="nationality"
           id="nationality"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
-          defaultCountry={nationality}
+          defaultCountry={guest.nationality}
         />
       </UpdateProfileForm>
     </div>
