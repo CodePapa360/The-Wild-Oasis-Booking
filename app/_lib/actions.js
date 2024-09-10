@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { updateGuest } from "./data-service";
 
@@ -22,6 +23,9 @@ export async function UpdateGuest(formData) {
   };
 
   await updateGuest(session.user.guestId, updateData);
+
+  // Revalidate the profile page to show the updated data
+  revalidatePath("/account/profile");
 }
 
 export async function signInAction() {
