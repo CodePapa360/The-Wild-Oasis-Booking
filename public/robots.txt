@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /account/
+Disallow: /login/
+Disallow: /api/
+Disallow: /about/
+Allow: /cabins/
+Allow: /
+
+Sitemap: https://wild-oasis-customer-codepapa360.vercel.app/sitemap.xml

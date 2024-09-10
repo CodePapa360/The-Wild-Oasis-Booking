@@ -10,12 +10,67 @@ const josefin = Josefin_Sans({
 
 export const metadata = {
   title: {
-    template: "%s | The Wild Oasis",
-    default: "The Wild Oasis",
+    template: "%s | The Wild Oasis | Alamin (CodePapa360)",
+    default: "The Wild Oasis | Alamin (CodePapa360)",
   },
 
   description:
-    "Luxurious cabins in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests.",
+    "Explore The Wild Oasis by Alamin (CodePapa360), a platform that connects you with the best adventure experiences. Find unique destinations, thrilling activities, and plan your next wild getaway.",
+  applicationName: "The Wild Oasis",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "Adventure",
+    "Travel",
+    "Wild Oasis",
+    "Thrilling Experiences",
+    "Getaway",
+    "Adventure Trips",
+    "Alamin",
+    "CodePapa360",
+  ],
+  authors: [{ name: "Alamin (CodePapa360)" }],
+  colorScheme: "dark",
+  themeColor: "#141c24",
+
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black",
+    title: "The Wild Oasis",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    url: "https://wild-oasis-customer-codepapa360.vercel.app/",
+    title: "The Wild Oasis | Alamin (CodePapa360)",
+    description:
+      "Discover new adventures with The Wild Oasis by Alamin (CodePapa360). From hiking trails to exotic locations, we connect you with unforgettable experiences.",
+    images: [
+      {
+        url: "/thumbnail.png",
+        width: 1920,
+        height: 1080,
+        alt: "The Wild Oasis - Alamin (CodePapa360)'s Adventure Platform",
+        type: "image/webp",
+      },
+    ],
+    locale: "en_US",
+    siteName: "The Wild Oasis",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Wild Oasis | Alamin (CodePapa360)",
+    description:
+      "Plan your next adventure with The Wild Oasis by Alamin (CodePapa360). Explore thrilling destinations and experiences for the ultimate getaway.",
+    images: ["/thumbnail.png"],
+    site: "@CodePapa360",
+    creator: "@CodePapa360",
+    imageAlt: "The Wild Oasis - Alamin (CodePapa360)'s Adventure Platform",
+  },
+  alternates: {
+    canonical: "https://wild-oasis-customer-codepapa360.vercel.app/",
+  },
 };
 
 export default function RootLayout({ children }) {
