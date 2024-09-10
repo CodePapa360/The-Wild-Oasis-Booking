@@ -35,6 +35,9 @@ export async function UpdateGuest(formData) {
 }
 
 export async function deleteReservation(bookingId) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  throw new Error("Failed to delete reservation");
+
   const session = await auth();
   if (!session) throw new Error("You must be signed in");
 
