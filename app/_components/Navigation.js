@@ -7,6 +7,7 @@ export default function Navigation({ handleToggle, session }) {
       <ul className="flex flex-col md:flex-row gap-2 md:gap-16 items-center">
         <li>
           <Link
+            onClick={handleToggle}
             href="/cabins"
             className="hover:text-accent-400 transition-colors text-black md:text-primary-100"
           >
@@ -15,6 +16,7 @@ export default function Navigation({ handleToggle, session }) {
         </li>
         <li>
           <Link
+            onClick={handleToggle}
             href="/about"
             className="hover:text-accent-400 transition-colors text-black md:text-primary-100"
           >
@@ -24,6 +26,7 @@ export default function Navigation({ handleToggle, session }) {
         <li>
           {session?.user?.image ? (
             <Link
+              onClick={handleToggle}
               href="/account"
               className="hover:text-accent-400 transition-colors text-black md:text-primary-100 flex items-center gap-4 md:flex-row flex-col-reverse"
             >
@@ -40,6 +43,7 @@ export default function Navigation({ handleToggle, session }) {
             </Link>
           ) : (
             <Link
+              onClick={handleToggle}
               href="/account"
               className="hover:text-accent-400 transition-colors text-black md:text-primary-100"
             >

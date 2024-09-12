@@ -32,7 +32,7 @@ function NavToggle({ session }) {
           isOpen ? "top-0" : "-top-full"
         } flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto  absolute right-0 md:relative bg-slate-300 md:bg-transparent h-fit md:h-auto w-screen md:w-auto z-40 py-8 md:p-0 shadow-lg md:shadow-none transition-all`}
       >
-        <Logo />
+        <Logo handleToggle={handleToggle} />
         <Navigation handleToggle={handleToggle} session={session} />
       </div>
     </>

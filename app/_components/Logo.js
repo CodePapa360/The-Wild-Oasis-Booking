@@ -2,9 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo.png";
 
-function Logo() {
+function Logo({ handleToggle }) {
   return (
     <Link
+      onClick={handleToggle}
       href="/"
       className="flex items-center gap-4 z-10 flex-col md:flex-row mb-2 md:mb-0"
     >
