@@ -9,6 +9,7 @@ import {
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
+import { useEffect, useState } from "react";
 
 function isAlreadyBooked(range, datesArr) {
   return (
@@ -31,6 +32,19 @@ function DateSelector({ settings, cabin, bookedDates }) {
 
   const { minBookingLength, maxBookingLength } = settings;
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="flex flex-col justify-between">
       <DayPicker
@@ -44,15 +58,15 @@ function DateSelector({ settings, cabin, bookedDates }) {
         fromDate={new Date()}
         toYear={new Date().getFullYear() + 5}
         captionLayout="dropdown"
-        numberOfMonths={2}
+        numberOfMonths={isMobile ? 1 : 2}
         disabled={(curDate) =>
           isPast(curDate) ||
           bookedDates.some((date) => isSameDay(date, curDate))
         }
       />
 
-      <div className="flex items-center justify-between px-8 bg-accent-500 text-primary-800 h-[72px]">
-        <div className="flex items-baseline gap-6">
+      <div className="flex flex-wrap justify-center items-center gap-2 md:gap-0 md:justify-between p-2 md:px-8 bg-accent-500 text-primary-800">
+        <div className="flex items-baseline gap-2 md:gap-6">
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
               <>
@@ -62,18 +76,22 @@ function DateSelector({ settings, cabin, bookedDates }) {
                 </span>
               </>
             ) : (
-              <span className="text-2xl">${regularPrice}</span>
+              <span className="text-lg md:text-2xl">${regularPrice}</span>
             )}
             <span className="">/night</span>
           </p>
           {numNights ? (
             <>
-              <p className="bg-accent-600 px-3 py-2 text-2xl">
+              <p className="bg-accent-600 px-3 py-2 text-base md:text-2xl">
                 <span>&times;</span> <span>{numNights}</span>
               </p>
               <p>
-                <span className="text-lg font-bold uppercase">Total</span>{" "}
-                <span className="text-2xl font-semibold">${cabinPrice}</span>
+                <span className="text-sm md:text-lg font-bold uppercase">
+                  Total
+                </span>{" "}
+                <span className="text-lg md:text-2xl font-semibold">
+                  ${cabinPrice}
+                </span>
               </p>
             </>
           ) : null}
