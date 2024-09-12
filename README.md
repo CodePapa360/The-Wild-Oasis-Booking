@@ -5,7 +5,7 @@
   <h1>The Wild Oasis - Booking</h1>
 
   <h3>
-    <a href="https://the-wild-oasis-alamin.vercel.app">
+    <a href="https://the-wild-oasis-booking-alamin.vercel.app">
       <strong>Live Site</strong>
     </a>
   </h3>
