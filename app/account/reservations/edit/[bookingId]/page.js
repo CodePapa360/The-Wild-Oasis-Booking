@@ -13,13 +13,13 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+      <h2 className="font-semibold text-lg md:text-2xl text-accent-400 mb-7">
         Edit Reservation #{bookingId}
       </h2>
 
       <form
         action={updateReservation}
-        className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+        className="bg-primary-900 p-4 md:py-8 md:px-12 text-lg flex gap-6 flex-col"
       >
         <input type="hidden" name="bookingId" defaultValue={bookingId} />
 
