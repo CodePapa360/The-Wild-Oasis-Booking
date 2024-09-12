@@ -6,11 +6,11 @@ export default async function Navigation() {
 
   return (
     <nav className="z-10 text-xl">
-      <ul className="flex gap-16 items-center">
+      <ul className="flex flex-col md:flex-row gap-2 md:gap-16 items-center">
         <li>
           <Link
             href="/cabins"
-            className="hover:text-accent-400 transition-colors"
+            className="hover:text-accent-400 transition-colors text-black md:text-primary-100"
           >
             Cabins
           </Link>
@@ -18,7 +18,7 @@ export default async function Navigation() {
         <li>
           <Link
             href="/about"
-            className="hover:text-accent-400 transition-colors"
+            className="hover:text-accent-400 transition-colors text-black md:text-primary-100"
           >
             About
           </Link>
@@ -27,7 +27,7 @@ export default async function Navigation() {
           {session?.user?.image ? (
             <Link
               href="/account"
-              className="hover:text-accent-400 transition-colors flex items-center gap-4"
+              className="hover:text-accent-400 transition-colors text-black md:text-primary-100 flex items-center gap-4"
             >
               <img
                 className="h-8 rounded-full"
@@ -40,7 +40,7 @@ export default async function Navigation() {
           ) : (
             <Link
               href="/account"
-              className="hover:text-accent-400 transition-colors"
+              className="hover:text-accent-400 transition-colors text-black md:text-primary-100"
             >
               Guest area
             </Link>
