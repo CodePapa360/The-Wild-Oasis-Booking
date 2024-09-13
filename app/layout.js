@@ -10,74 +10,105 @@ const josefin = Josefin_Sans({
 
 export const metadata = {
   title: {
-    template: "%s | The Wild Oasis | Alamin (CodePapa360)",
-    default: "The Wild Oasis | Alamin (CodePapa360)",
-  },
-
-  description:
-    "Explore The Wild Oasis by Alamin (CodePapa360), a platform that connects you with the best adventure experiences. Find unique destinations, thrilling activities, and plan your next wild getaway.",
-  applicationName: "The Wild Oasis",
-  referrer: "origin-when-cross-origin",
-  keywords: [
-    "Wild Oasis",
-    "The Wild Oasis Website",
-    "Thrilling Experiences",
-    "Adventure",
-    "Travel",
-    "Getaway",
-    "Adventure Trips",
-    "Jonas Schmedtmann",
-    "Alamin",
-    "CodePapa360",
-  ],
-  authors: [{ name: "Alamin (CodePapa360)" }],
-  colorScheme: "dark",
-  themeColor: "#141c24",
-
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black",
-    title: "The Wild Oasis",
-  },
-  formatDetection: {
-    telephone: false,
-  },
-  openGraph: {
-    type: "website",
-    url: "https://wild-oasis-customer-codepapa360.vercel.app/",
-    title: "The Wild Oasis | Alamin (CodePapa360)",
-    description:
-      "Discover new adventures with The Wild Oasis by Alamin (CodePapa360). From hiking trails to exotic locations, we connect you with unforgettable experiences.",
-    images: [
-      {
-        url: "/thumbnail.png",
-        width: 1920,
-        height: 1080,
-        alt: "The Wild Oasis - Alamin (CodePapa360)'s Adventure Platform",
-        type: "image/webp",
-      },
-    ],
-    locale: "en_US",
-    siteName: "The Wild Oasis",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "The Wild Oasis | Alamin (CodePapa360)",
-    description:
-      "Plan your next adventure with The Wild Oasis by Alamin (CodePapa360). Explore thrilling destinations and experiences for the ultimate getaway.",
-    images: ["/thumbnail.png"],
-    site: "@CodePapa360",
-    creator: "@CodePapa360",
-    imageAlt: "The Wild Oasis - Alamin (CodePapa360)'s Adventure Platform",
-  },
-  alternates: {
-    canonical: "https://wild-oasis-customer-codepapa360.vercel.app/",
+    template: "%s | The Wild Oasis Booking | Alamin (CodePapa360)",
+    default: "The Wild Oasis Booking | Alamin (CodePapa360)",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <meta name="color-scheme" content="dark" />
+      <meta name="theme-color" content="#141c24" />
+      <link
+        rel="canonical"
+        href="https://the-wild-oasis-booking-alamin.vercel.app"
+      />
+      <meta
+        name="description"
+        content="Explore The Wild Oasis Booking by Alamin (CodePapa360). Find unique destinations, thrilling activities, and plan your next wild getaway."
+      />
+      <meta name="application-name" content="The Wild Oasis Booking" />
+      <meta name="referrer" content="origin-when-cross-origin" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <meta
+        name="apple-mobile-web-app-title"
+        content="The Wild Oasis Booking"
+      />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="author" content="Alamin, CodePapa360" />
+      <meta property="og:author" content="Alamin, CodePapa360" />
+
+      <meta
+        name="keywords"
+        content="Wild Oasis,
+            Wild Oasis Booking,
+            The Wild Oasis Website,
+            Nextjs project,
+            Thrilling Experiences,
+            Adventure,
+            Travel,
+            Adventure Trips, 
+            Jonas Schmedtmann, 
+            Alamin, 
+            CodePapa360"
+      />
+      <meta name="robots" content="index, follow" />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:url"
+        content="https://the-wild-oasis-booking-alamin.vercel.app"
+      />
+      <meta property="og:title" content="The Wild Oasis Booking" />
+      <meta
+        property="og:description"
+        content="Explore The Wild Oasis Booking by Alamin (CodePapa360). Find unique destinations, thrilling activities, and plan your next wild getaway."
+      />
+      <meta
+        property="og:image"
+        content="https://the-wild-oasis-booking-alamin.vercel.app/thumbnail.png"
+      />
+      <meta
+        property="og:image:secure_url"
+        content="https://the-wild-oasis-booking-alamin.vercel.app/thumbnail.png"
+      />
+      <meta property="og:site_name" content="The Wild Oasis Booking" />
+      <meta
+        property="og:image:alt"
+        content="Thumbnail image of The Wild Oasis Booking website"
+      />
+      <meta property="og:updated_time" content="2024-09-13T10:23:00Z" />
+
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="1920" />
+      <meta property="og:image:height" content="1080" />
+
+      <meta property="og:locale" content="en_US" />
+      <meta name="geo.region" content="BD-13" />
+      <meta name="geo.placename" content="Dhaka" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="The Wild Oasis Booking" />
+      <meta
+        name="twitter:description"
+        content="Explore The Wild Oasis Booking by Alamin (CodePapa360). Find unique destinations, thrilling activities, and plan your next wild getaway."
+      />
+      <meta
+        name="twitter:image"
+        content="https://the-wild-oasis-booking-alamin.vercel.app/thumbnail.png"
+      />
+      <meta
+        name="twitter:url"
+        content="https://the-wild-oasis-booking-alamin.vercel.app"
+      />
+      <meta name="twitter:site" content="@CodePapa360" />
+      <meta name="twitter:creator" content="@CodePapa360" />
+      <meta
+        name="twitter:image:alt"
+        content="Thumbnail image of The Wild Oasis Booking website"
+      />
       <body
         className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
       >
