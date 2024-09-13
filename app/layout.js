@@ -119,6 +119,10 @@ export default function RootLayout({ children }) {
             <ReservationProvider>{children}</ReservationProvider>
           </main>
         </div>
+
+        <footer className="sr-only">
+          @copyright by Alamin and Jonas Schmedtmann
+        </footer>
       </body>
     </html>
   );

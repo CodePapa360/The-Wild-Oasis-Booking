@@ -56,9 +56,9 @@ export default async function Page() {
       </div>
 
       <div>
-        <h1 className="text-3xl md:text-4xl mb-10 text-accent-400 font-medium">
+        <h2 className="text-3xl md:text-4xl mb-10 text-accent-400 font-medium">
           Managed by our family since 1962
-        </h1>
+        </h2>
 
         <div className="grid gap-4 md:gap-10 grid-cols-1 grid-rows-[auto_auto] md:grid-rows-1 md:grid-cols-[1fr_2fr]">
           {/* This is an example when you can't provide the static sourse and the source will come from a 3rd perty database */}

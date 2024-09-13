@@ -21,8 +21,9 @@ function NavToggle({ session }) {
         } md:hidden top-0 left-0 absolute h-screen w-screen bg-black/10 z-20`}
       />
       <button
+        title="Menu"
         onClick={handleToggle}
-        className="md:hidden bg-slate-500 shadow-lg border-slate-200 border-2 text-slate-200 rounded-full size-12 flex justify-center items-center select-none cursor-pointer z-50 relative p-2"
+        className="md:hidden bg-slate-500 shadow-lg text-slate-200 rounded-full size-12 flex justify-center items-center select-none cursor-pointer z-50 relative p-2"
       >
         {isOpen ? <XMarkIcon /> : <Bars3Icon />}
       </button>
